@@ -1,7 +1,8 @@
-package com.srthk.coronatiem
+package com.srthk.coronatiem.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.srthk.coronatiem.R
 
 class MainActivity : AppCompatActivity() {
 
