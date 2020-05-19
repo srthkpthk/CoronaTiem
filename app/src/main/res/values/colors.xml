@@ -3,4 +3,15 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="dark_blue">#183F81</color>
+    <color name="light_grey">#7AFFFFFF</color>
+    <color name="gradientStart">#00194E</color>
+    <color name="gradinetEnd">#2C0303</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gradient_start_light">#304F80</color>
+    <color name="yellow">#FFEA00</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#00E676</color>
+    <color name="gradient_end_light">#566E97</color>
+
 </resources>

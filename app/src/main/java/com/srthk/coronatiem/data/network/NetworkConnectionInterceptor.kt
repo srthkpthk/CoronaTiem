@@ -28,6 +28,6 @@ class NetworkConnectionInterceptor(context: Context) : Interceptor {
                 }
             }
         }
-        return result
+        return !result
     }
 }
