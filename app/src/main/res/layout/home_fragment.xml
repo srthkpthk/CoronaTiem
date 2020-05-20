@@ -2,6 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+<data>
+    <variable
+        name="total"
+        type="com.srthk.coronatiem.ui.home.HomeFragment" />
+</data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
@@ -9,8 +14,7 @@
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/home_back">
+            android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -151,6 +155,7 @@
                             android:layout_marginEnd="16sp"
                             android:layout_marginBottom="16sp"
                             android:fontFamily="@font/josefin"
+                            android:text="@{total."
                             android:textColor="@color/yellow"
                             android:textSize="16sp"
                             app:layout_constraintBottom_toTopOf="@+id/recoveredCount"

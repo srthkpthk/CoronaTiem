@@ -1,4 +1,4 @@
-package com.srthk.coronatiem.ui.Home
+package com.srthk.coronatiem.ui.home
 
 import com.srthk.coronatiem.R
 import com.srthk.coronatiem.data.db.entries.Statewise

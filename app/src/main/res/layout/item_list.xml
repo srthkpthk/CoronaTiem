@@ -4,45 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="state"
             type="com.srthk.coronatiem.data.db.entries.Statewise" />
+
     </data>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"
-        app:cardBackgroundColor="@color/gradient_start_light"
+        app:cardBackgroundColor="@color/dark_blue"
+        android:layout_marginBottom="10dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardRootView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/stateName"
+                android:id="@+id/countryName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/inconsolata"
                 android:text="@{state.state}"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="INDIA" />
+                tools:text="CHINA" />
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                app:layout_constraintBottom_toBottomOf="@+id/stateName"
-                app:layout_constraintStart_toEndOf="@+id/stateName"
-                app:layout_constraintTop_toTopOf="@+id/stateName"
+                app:layout_constraintBottom_toBottomOf="@+id/countryName"
+                app:layout_constraintStart_toEndOf="@+id/countryName"
+                app:layout_constraintTop_toTopOf="@+id/countryName"
                 app:srcCompat="@drawable/ic_dot_blue" />
 
             <TextView
@@ -50,98 +53,69 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:fontFamily="@font/josefin"
+                android:fontFamily="@font/montserrat"
                 android:text="@{state.deltaconfirmed}"
                 android:textColor="@color/yellow"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/stateName"
+                app:layout_constraintBottom_toBottomOf="@+id/countryName"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="@+id/stateName"
+                app:layout_constraintTop_toTopOf="@+id/countryName"
                 tools:text="41" />
 
             <TextView
-                android:id="@+id/newcasestext"
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/montserrat"
                 android:text="@string/new_cases_today"
-                android:textColor="@color/gradient_end_light"
+                android:textColor="@color/light_grey"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/newCasesCount"
                 app:layout_constraintStart_toEndOf="@+id/newCasesCount"
                 app:layout_constraintTop_toTopOf="@+id/newCasesCount"
-                app:layout_constraintVertical_bias="0.75" />
+                app:layout_constraintVertical_bias="1.0" />
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="10dp"
-                android:background="#132D59"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stateName" />
+            <TextView
+                android:id="@+id/confirmedCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/lekereli"
+                android:text="@{state.confirmed}"
+                android:textColor="@color/yellow"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/countryName"
+                tools:text="81,008" />
 
             <TextView
                 android:id="@+id/textView4"
                 style="@style/HeadingTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15sp"
-                android:layout_marginBottom="10sp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="@string/confirmed"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/confirmedCount"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/view"
-                app:layout_constraintTop_toBottomOf="@+id/confirmedCount"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/confirmedCount" />
 
             <TextView
                 android:id="@+id/deathCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="25dp"
-                android:fontFamily="@font/josefin"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/lekereli"
                 android:text="@{state.deaths}"
                 android:textColor="@color/red"
                 android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view"
-                tools:text="81,008" />
-
-            <TextView
-                android:id="@+id/confirmedCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="15sp"
-                android:fontFamily="@font/josefin"
-                android:text="@{state.confirmed}"
-                android:textColor="@color/yellow"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view"
-                tools:text="81,008" />
-
-            <TextView
-                android:id="@+id/recoveredCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15sp"
-                android:fontFamily="@font/josefin"
-                android:text="@{state.recovered}"
-                android:textColor="@color/green"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toStartOf="@+id/deathCount"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/confirmedCount"
-                app:layout_constraintTop_toBottomOf="@+id/view"
+                app:layout_constraintEnd_toEndOf="@+id/textView5"
+                app:layout_constraintStart_toStartOf="@+id/textView5"
+                app:layout_constraintTop_toBottomOf="@+id/countryName"
                 tools:text="81,008" />
 
             <TextView
@@ -150,25 +124,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:layout_marginEnd="25dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="Deaths :"
-                app:layout_constraintEnd_toEndOf="@+id/view"
-                app:layout_constraintHorizontal_bias="0.25"
-                app:layout_constraintStart_toStartOf="@+id/deathCount"
+                android:text="@string/deaths"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/deathCount" />
+
+            <TextView
+                android:id="@+id/recoveredCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/lekereli"
+                android:text="@{state.recovered}"
+                android:textColor="@color/green"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView6"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/countryName"
+                tools:text="81,008" />
 
             <TextView
                 android:id="@+id/textView6"
                 style="@style/HeadingTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15sp"
-                android:layout_marginBottom="10sp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="@string/recovered"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/recoveredCount"
-                app:layout_constraintStart_toStartOf="@+id/recoveredCount"
+                app:layout_constraintEnd_toStartOf="@+id/textView5"
+                app:layout_constraintStart_toEndOf="@+id/textView4"
                 app:layout_constraintTop_toBottomOf="@+id/recoveredCount" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView></layout>
+    </androidx.cardview.widget.CardView>
+</layout>

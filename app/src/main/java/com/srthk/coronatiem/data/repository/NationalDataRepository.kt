@@ -15,7 +15,7 @@ import kotlinx.coroutines.withContext
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
-class NotionalDataRepository(
+class NationalDataRepository(
     private val api: API,
     private val db: AppDatabase,
     private val prefs: PreferenceProvider
@@ -49,6 +49,7 @@ class NotionalDataRepository(
 
     private fun fetchNeeded(dataSavedAt: LocalDateTime): Boolean =
         ChronoUnit.HOURS.between(dataSavedAt, LocalDateTime.now()) > MIN_INTERVAL
+
 
     private fun saveNationalData(it: List<Statewise>) {
         CoroutineScope(Dispatchers.IO).launch {

@@ -1,11 +1,13 @@
-package com.srthk.coronatiem.ui.Home
+package com.srthk.coronatiem.ui.home
 
 import androidx.lifecycle.ViewModel
-import com.srthk.coronatiem.data.repository.NotionalDataRepository
+import com.srthk.coronatiem.data.repository.NationalDataRepository
 import com.srthk.coronatiem.util.lazyDeferred
 
 class HomeViewModel(
-    repository: NotionalDataRepository
+    repository: NationalDataRepository
 ) : ViewModel() {
     val nationalData by lazyDeferred { repository.getNationalData() }
+
+
 }

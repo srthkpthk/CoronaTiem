@@ -5,8 +5,8 @@ import com.srthk.coronatiem.data.db.AppDatabase
 import com.srthk.coronatiem.data.network.API
 import com.srthk.coronatiem.data.network.NetworkConnectionInterceptor
 import com.srthk.coronatiem.data.preference.PreferenceProvider
-import com.srthk.coronatiem.data.repository.NotionalDataRepository
-import com.srthk.coronatiem.ui.Home.NationalViewModelFactory
+import com.srthk.coronatiem.data.repository.NationalDataRepository
+import com.srthk.coronatiem.ui.home.NationalViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -23,7 +23,7 @@ class CoronaTiemApp : Application(), KodeinAware {
         bind() from singleton { API(instance()) }
         bind() from singleton { AppDatabase(instance()) }
         bind() from singleton { PreferenceProvider(instance()) }
-        bind() from singleton { NotionalDataRepository(instance(), instance(), instance()) }
+        bind() from singleton { NationalDataRepository(instance(), instance(), instance()) }
         bind() from provider { NationalViewModelFactory(instance()) }
     }
 }

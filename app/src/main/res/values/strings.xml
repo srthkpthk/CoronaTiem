@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CoronaTime</string>
+    <string name="app_name">CoronaTiem</string>
     <string name="search_country">Search Country</string>
     <string name="india_under_corona">India under Corona</string>
     <string name="confirmed">Confirmed :</string>
@@ -11,4 +11,7 @@
     <string name="state_wise_tally">State Wise Tally :</string>
     <string name="india_totals">India Totals</string>
     <string name="new_cases_today">New Cases Today</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

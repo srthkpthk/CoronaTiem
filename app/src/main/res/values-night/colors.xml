@@ -13,6 +13,5 @@
     <color name="red">#FF0000</color>
     <color name="green">#00E676</color>
     <color name="gradient_end_light">#566E97</color>
-    <color name="black">#000000</color>
-
+    <color name="black">#FFFFFF</color>
 </resources>

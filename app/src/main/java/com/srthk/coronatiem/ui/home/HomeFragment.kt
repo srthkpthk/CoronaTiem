@@ -1,4 +1,4 @@
-package com.srthk.coronatiem.ui.Home
+package com.srthk.coronatiem.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -44,9 +44,11 @@ class HomeFragment : Fragment(), KodeinAware {
         })
     }
 
-    private fun initRv(it: List<NationalDataItem>) {
+
+    private fun initRv(stateList: List<NationalDataItem>) {
+        println(stateList[0])
         val groupAdapter = GroupAdapter<ViewHolder>().apply {
-            addAll(it)
+            addAll(stateList)
         }
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
@@ -54,6 +56,7 @@ class HomeFragment : Fragment(), KodeinAware {
             adapter = groupAdapter
         }
     }
+
 }
 
 private fun List<Statewise>.toNationalDataItem() = this.map { NationalDataItem(it) }
