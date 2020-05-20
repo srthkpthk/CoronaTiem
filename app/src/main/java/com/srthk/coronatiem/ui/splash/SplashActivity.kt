@@ -6,6 +6,7 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.srthk.coronatiem.R
 import com.srthk.coronatiem.ui.MainActivity
+import com.srthk.coronatiem.util.SPLASH_TIME
 
 class SplashActivity : AppCompatActivity() {
 
@@ -15,6 +16,6 @@ class SplashActivity : AppCompatActivity() {
         Handler().postDelayed({
             startActivity(Intent(this, MainActivity::class.java))
             finish()
-        }, 3000L)
+        }, SPLASH_TIME)
     }
 }

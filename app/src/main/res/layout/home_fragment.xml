@@ -2,11 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<data>
-    <variable
-        name="total"
-        type="com.srthk.coronatiem.ui.home.HomeFragment" />
-</data>
+
+    <data>
+
+        <variable
+            name="total"
+            type="com.srthk.coronatiem.data.db.entries.Statewise" />
+    </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
@@ -27,7 +29,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/yesteryear_regular"
                     android:text="@string/app_name"
-                    android:textColor="@color/gradient_start_light"
+                    android:textColor="@color/home_cards_color"
                     android:textSize="40sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -35,13 +37,13 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
+                    android:id="@+id/totalStatsCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
-                    app:cardBackgroundColor="@color/gradient_start_light"
+                    app:cardBackgroundColor="@color/home_cards_color"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +61,8 @@
                             android:layout_marginEnd="16sp"
                             android:layout_marginBottom="16sp"
                             android:fontFamily="@font/josefin"
-                            android:textColor="@color/gradient_end_light"
+                            android:text="@{`+[` + total.deltadeaths +`]`}"
+                            android:textColor="@color/delta_text_color"
                             android:textSize="16sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -72,7 +75,8 @@
                             android:layout_marginEnd="16sp"
                             android:layout_marginBottom="16sp"
                             android:fontFamily="@font/josefin"
-                            android:textColor="@color/gradient_end_light"
+                            android:text="@{`+[` + total.deltarecovered +`]`}"
+                            android:textColor="@color/delta_text_color"
                             android:textSize="16sp"
                             app:layout_constraintBottom_toTopOf="@+id/deltaDeath"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +89,8 @@
                             android:layout_marginEnd="16sp"
                             android:layout_marginBottom="16sp"
                             android:fontFamily="@font/josefin"
-                            android:textColor="@color/gradient_end_light"
+                            android:text="@{`+[` + total.deltaconfirmed +`]`}"
+                            android:textColor="@color/delta_text_color"
                             android:textSize="16sp"
                             app:layout_constraintBottom_toTopOf="@+id/deltaRecovered"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -142,6 +147,7 @@
                             android:layout_marginEnd="16sp"
                             android:layout_marginBottom="16sp"
                             android:fontFamily="@font/josefin"
+                            android:text="@{total.recovered}"
                             android:textColor="@color/green"
                             android:textSize="16sp"
                             app:layout_constraintBottom_toTopOf="@+id/deathCount"
@@ -155,7 +161,7 @@
                             android:layout_marginEnd="16sp"
                             android:layout_marginBottom="16sp"
                             android:fontFamily="@font/josefin"
-                            android:text="@{total."
+                            android:text="@{total.confirmed}"
                             android:textColor="@color/yellow"
                             android:textSize="16sp"
                             app:layout_constraintBottom_toTopOf="@+id/recoveredCount"
@@ -169,6 +175,7 @@
                             android:layout_marginEnd="16sp"
                             android:layout_marginBottom="16dp"
                             android:fontFamily="@font/josefin"
+                            android:text="@{total.deaths}"
                             android:textColor="@color/red"
                             android:textSize="16sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -187,7 +194,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/lekereli"
                     android:text="@string/india_totals"
-                    android:textColor="@color/gradient_start_light"
+                    android:textColor="@color/home_cards_color"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -201,11 +208,11 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/lekereli"
                     android:text="@string/state_wise_tally"
-                    android:textColor="@color/gradient_start_light"
+                    android:textColor="@color/home_cards_color"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView" />
+                    app:layout_constraintTop_toBottomOf="@+id/totalStatsCard" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
@@ -220,15 +227,24 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView17"
                     tools:listitem="@layout/item_list" />
 
-<!--                <com.facebook.shimmer.ShimmerFrameLayout-->
-                <!--                    android:id="@+id/shimmer"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="match_parent"-->
-                <!--                    android:layout_marginTop="10dp"-->
-                <!--                    app:layout_constraintTop_toBottomOf="@+id/textView17">-->
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView17">
 
-                <!--                    <include layout="@layout/shimmer_layout" />-->
-                <!--                </com.facebook.shimmer.ShimmerFrameLayout>-->
+                    <include layout="@layout/shimmer_layout" />
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="@{total.lastupdatedtime}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

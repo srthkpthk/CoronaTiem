@@ -15,6 +15,5 @@ data class Statewise(
     val recovered: String,
     val state: String,
     @PrimaryKey(autoGenerate = false)
-    val statecode: String,
-    val statenotes: String
+    val statecode: String
 )

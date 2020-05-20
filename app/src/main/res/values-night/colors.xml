@@ -8,10 +8,11 @@
     <color name="gradientStart">#00194E</color>
     <color name="gradinetEnd">#2C0303</color>
     <color name="white">#FFFFFF</color>
-    <color name="gradient_start_light">#304F80</color>
+    <color name="home_cards_color">#304F80</color>
     <color name="yellow">#FFEA00</color>
     <color name="red">#FF0000</color>
     <color name="green">#00E676</color>
-    <color name="gradient_end_light">#566E97</color>
+    <color name="delta_text_color">#566E97</color>
     <color name="black">#FFFFFF</color>
+    <color name="dot_color">#252424</color>
 </resources>

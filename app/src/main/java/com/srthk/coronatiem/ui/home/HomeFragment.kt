@@ -1,15 +1,17 @@
 package com.srthk.coronatiem.ui.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.srthk.coronatiem.R
 import com.srthk.coronatiem.data.db.entries.Statewise
+import com.srthk.coronatiem.databinding.HomeFragmentBinding
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.home_fragment.*
@@ -20,41 +22,46 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
 import org.kodein.di.generic.instance
 
-class HomeFragment : Fragment(), KodeinAware {
+class HomeFragment : Fragment(R.layout.home_fragment), KodeinAware {
     override val kodein by kodein()
     private val factory: NationalViewModelFactory by instance()
     private lateinit var viewModel: HomeViewModel
+    private var homeFragmentBinding: HomeFragmentBinding? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? =
-        inflater.inflate(R.layout.home_fragment, container, false)
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        showLoading(true)
+        homeFragmentBinding = HomeFragmentBinding.bind(view)
         viewModel = ViewModelProvider(this, factory).get(HomeViewModel::class.java)
         bindUI()
     }
 
+    private fun showLoading(flag: Boolean) {
+        shimmer.apply {
+            isVisible = flag
+            showShimmer(flag)
+        }
+    }
+
     private fun bindUI() = CoroutineScope(Dispatchers.Main).launch {
         viewModel.nationalData.await().observe(viewLifecycleOwner, Observer {
-            initRv(it.toNationalDataItem())
+            if (!it.isNullOrEmpty()) {
+                homeFragmentBinding!!.total = it[0]
+                initRv(it.filter { it.statecode != "TT" }.toNationalDataItem())
+            }
         })
     }
 
 
     private fun initRv(stateList: List<NationalDataItem>) {
-        println(stateList[0])
         val groupAdapter = GroupAdapter<ViewHolder>().apply {
             addAll(stateList)
         }
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            setHasFixedSize(true)
             adapter = groupAdapter
         }
+        showLoading(false)
     }
 
 }
