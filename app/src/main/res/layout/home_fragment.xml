@@ -10,246 +10,245 @@
             type="com.srthk.coronatiem.data.db.entries.Statewise" />
     </data>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.core.widget.NestedScrollView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/yesteryear_regular"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/totalStatsCard"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView15">
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/yesteryear_regular"
-                    android:text="@string/app_name"
-                    android:textColor="@color/home_cards_color"
-                    android:textSize="40sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/totalStatsCard"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    app:cardBackgroundColor="@color/home_cards_color"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView15">
+                    android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/deltaDeath"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16sp"
+                        android:layout_marginBottom="16sp"
+                        android:fontFamily="@font/josefin"
+                        android:text="@{`+[` + total.deltadeaths +`]`}"
+                        android:textColor="@color/delta_text_color"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="+[100]" />
 
-                        <TextView
-                            android:id="@+id/deltaDeath"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16sp"
-                            android:layout_marginBottom="16sp"
-                            android:fontFamily="@font/josefin"
-                            android:text="@{`+[` + total.deltadeaths +`]`}"
-                            android:textColor="@color/delta_text_color"
-                            android:textSize="16sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            tools:text="+[100]" />
+                    <TextView
+                        android:id="@+id/deltaRecovered"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16sp"
+                        android:layout_marginBottom="16sp"
+                        android:fontFamily="@font/josefin"
+                        android:text="@{`+[` + total.deltarecovered +`]`}"
+                        android:textColor="@color/delta_text_color"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/deltaDeath"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="+[100]" />
 
-                        <TextView
-                            android:id="@+id/deltaRecovered"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16sp"
-                            android:layout_marginBottom="16sp"
-                            android:fontFamily="@font/josefin"
-                            android:text="@{`+[` + total.deltarecovered +`]`}"
-                            android:textColor="@color/delta_text_color"
-                            android:textSize="16sp"
-                            app:layout_constraintBottom_toTopOf="@+id/deltaDeath"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            tools:text="+[100]" />
+                    <TextView
+                        android:id="@+id/deltaConfirmed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16sp"
+                        android:layout_marginBottom="16sp"
+                        android:fontFamily="@font/josefin"
+                        android:text="@{`+[` + total.deltaconfirmed +`]`}"
+                        android:textColor="@color/delta_text_color"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/deltaRecovered"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/confirmedCount"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="+[100]" />
 
-                        <TextView
-                            android:id="@+id/deltaConfirmed"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16sp"
-                            android:layout_marginBottom="16sp"
-                            android:fontFamily="@font/josefin"
-                            android:text="@{`+[` + total.deltaconfirmed +`]`}"
-                            android:textColor="@color/delta_text_color"
-                            android:textSize="16sp"
-                            app:layout_constraintBottom_toTopOf="@+id/deltaRecovered"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/confirmedCount"
-                            app:layout_constraintVertical_bias="0.0"
-                            tools:text="+[100]" />
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="@font/josefin"
+                        android:text="@string/deaths"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-                        <TextView
-                            android:id="@+id/textView3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="16dp"
-                            android:fontFamily="@font/josefin"
-                            android:text="@string/deaths"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/josefin"
+                        android:text="@string/confirmed"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/textView4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/josefin"
-                            android:text="@string/confirmed"
-                            android:textColor="@color/white"
-                            android:textSize="16sp"
-                            android:textStyle="normal"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/josefin"
+                        android:text="@string/recovered"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-                        <TextView
-                            android:id="@+id/textView2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/josefin"
-                            android:text="@string/recovered"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                    <TextView
+                        android:id="@+id/confirmedCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/josefin"
+                        android:text="@{total.confirmed}"
+                        android:textColor="@color/yellow"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/recoveredCount"
+                        app:layout_constraintEnd_toStartOf="@+id/deltaConfirmed"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="100" />
 
-                        <TextView
-                            android:id="@+id/recoveredCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16sp"
-                            android:layout_marginBottom="16sp"
-                            android:fontFamily="@font/josefin"
-                            android:text="@{total.recovered}"
-                            android:textColor="@color/green"
-                            android:textSize="16sp"
-                            app:layout_constraintBottom_toTopOf="@+id/deathCount"
-                            app:layout_constraintEnd_toStartOf="@+id/deltaRecovered"
-                            tools:text="100" />
+                    <TextView
+                        android:id="@+id/recoveredCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/josefin"
+                        android:text="@{total.recovered}"
+                        android:textColor="@color/green"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/deathCount"
+                        app:layout_constraintEnd_toEndOf="@+id/confirmedCount"
+                        app:layout_constraintStart_toStartOf="@+id/confirmedCount"
+                        app:layout_constraintTop_toBottomOf="@+id/confirmedCount"
+                        tools:text="100" />
 
-                        <TextView
-                            android:id="@+id/confirmedCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16sp"
-                            android:layout_marginBottom="16sp"
-                            android:fontFamily="@font/josefin"
-                            android:text="@{total.confirmed}"
-                            android:textColor="@color/yellow"
-                            android:textSize="16sp"
-                            app:layout_constraintBottom_toTopOf="@+id/recoveredCount"
-                            app:layout_constraintEnd_toStartOf="@+id/deltaConfirmed"
-                            tools:text="100" />
-
-                        <TextView
-                            android:id="@+id/deathCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16sp"
-                            android:layout_marginBottom="16dp"
-                            android:fontFamily="@font/josefin"
-                            android:text="@{total.deaths}"
-                            android:textColor="@color/red"
-                            android:textSize="16sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/deltaDeath"
-                            tools:text="100" />
+                    <TextView
+                        android:id="@+id/deathCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/josefin"
+                        android:text="@{total.deaths}"
+                        android:textColor="@color/red"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/recoveredCount"
+                        app:layout_constraintStart_toStartOf="@+id/recoveredCount"
+                        app:layout_constraintTop_toBottomOf="@+id/recoveredCount"
+                        tools:text="100" />
 
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:id="@+id/textView15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/lekereli"
-                    android:text="@string/india_totals"
-                    android:textColor="@color/home_cards_color"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/lekereli"
+                android:text="@string/india_totals"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-                <TextView
-                    android:id="@+id/textView17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/lekereli"
-                    android:text="@string/state_wise_tally"
-                    android:textColor="@color/home_cards_color"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/totalStatsCard" />
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/lekereli"
+                android:text="@string/state_wise_tally"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/totalStatsCard" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView17"
-                    tools:listitem="@layout/item_list" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:nestedScrollingEnabled="true"
+                android:layout_marginEnd="10dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView17"
+                tools:listitem="@layout/item_list" />
 
-                <com.facebook.shimmer.ShimmerFrameLayout
-                    android:id="@+id/shimmer"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView17">
+            <!--            <com.facebook.shimmer.ShimmerFrameLayout-->
+            <!--                android:id="@+id/shimmer"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/textView17">-->
 
-                    <include layout="@layout/shimmer_layout" />
-                </com.facebook.shimmer.ShimmerFrameLayout>
+            <!--                <include layout="@layout/shimmer_layout" />-->
+            <!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
 
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="@{total.lastupdatedtime}"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
-                    app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@{total.lastupdatedtime}"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
+                app:layout_constraintEnd_toEndOf="parent" />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.core.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="dark_blue">#183F81</color>
@@ -8,12 +7,13 @@
     <color name="gradientStart">#00194E</color>
     <color name="gradinetEnd">#2C0303</color>
     <color name="white">#FFFFFF</color>
-    <color name="home_cards_color">#434445</color>
+    <color name="colorPrimary">#434445</color>
     <color name="yellow">#FFEA00</color>
     <color name="red">#FF0000</color>
     <color name="green">#00E676</color>
-    <color name="delta_text_color">#4C4C4C</color>
+    <color name="delta_text_color">#938A8A</color>
     <color name="black">#000000</color>
     <color name="dot_color">#B1ACAC</color>
+
 
 </resources>

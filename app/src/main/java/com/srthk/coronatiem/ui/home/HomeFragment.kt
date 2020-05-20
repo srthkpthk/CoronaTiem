@@ -2,9 +2,6 @@ package com.srthk.coronatiem.ui.home
 
 import android.os.Bundle
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -28,20 +25,21 @@ class HomeFragment : Fragment(R.layout.home_fragment), KodeinAware {
     private lateinit var viewModel: HomeViewModel
     private var homeFragmentBinding: HomeFragmentBinding? = null
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        showLoading(true)
+//        showLoading(true)
         homeFragmentBinding = HomeFragmentBinding.bind(view)
         viewModel = ViewModelProvider(this, factory).get(HomeViewModel::class.java)
         bindUI()
     }
 
-    private fun showLoading(flag: Boolean) {
-        shimmer.apply {
-            isVisible = flag
-            showShimmer(flag)
-        }
-    }
+//    private fun showLoading(flag: Boolean) {
+//        shimmer.apply {
+//            isVisible = flag
+//            showShimmer(flag)
+//        }
+//    }
 
     private fun bindUI() = CoroutineScope(Dispatchers.Main).launch {
         viewModel.nationalData.await().observe(viewLifecycleOwner, Observer {
@@ -60,8 +58,9 @@ class HomeFragment : Fragment(R.layout.home_fragment), KodeinAware {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = groupAdapter
+
         }
-        showLoading(false)
+//        showLoading(false)
     }
 
 }
