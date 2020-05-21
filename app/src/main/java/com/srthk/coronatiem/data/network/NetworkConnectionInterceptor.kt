@@ -3,6 +3,7 @@ package com.srthk.coronatiem.data.network
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.widget.Toast
 import com.srthk.coronatiem.util.InternetNotAvailableException
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -13,6 +14,7 @@ class NetworkConnectionInterceptor(context: Context) : Interceptor {
         if (internetNotAvailable())
             throw InternetNotAvailableException("Internet is not available,Check for any errors")
         return chain.proceed(chain.request())
+
     }
 
     private fun internetNotAvailable(): Boolean {

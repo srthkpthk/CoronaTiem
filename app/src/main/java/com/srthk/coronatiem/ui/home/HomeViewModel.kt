@@ -8,6 +8,6 @@ class HomeViewModel(
     repository: NationalDataRepository
 ) : ViewModel() {
     val nationalData by lazyDeferred { repository.getNationalData() }
-
-
+    val isInternetAvailable by lazy { repository.isInternetAvailable }
+    val isApiException by lazy { repository.isApiException }
 }

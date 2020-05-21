@@ -1,5 +1,6 @@
 package com.srthk.coronatiem.data.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.srthk.coronatiem.data.db.AppDatabase
@@ -7,6 +8,8 @@ import com.srthk.coronatiem.data.db.entries.Statewise
 import com.srthk.coronatiem.data.network.API
 import com.srthk.coronatiem.data.network.SafeApiRequest
 import com.srthk.coronatiem.data.preference.PreferenceProvider
+import com.srthk.coronatiem.util.ApiException
+import com.srthk.coronatiem.util.InternetNotAvailableException
 import com.srthk.coronatiem.util.MIN_INTERVAL
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -21,6 +24,8 @@ class NationalDataRepository(
     private val prefs: PreferenceProvider
 ) : SafeApiRequest() {
     private val nationalData = MutableLiveData<List<Statewise>>()
+    var isInternetAvailable: Boolean = true
+    var isApiException: Boolean = false
 
     init {
         nationalData.observeForever {
@@ -40,8 +45,11 @@ class NationalDataRepository(
             try {
                 val response = apiRequest { api.getNationalData() }
                 nationalData.postValue(response.statewise)
-            } catch (e: Exception) {
-                e.printStackTrace()
+            } catch (e: InternetNotAvailableException) {
+                Log.d("repo error", e.message!!)
+                isInternetAvailable = false
+            } catch (e: ApiException) {
+                isApiException = true
             }
 
         }
