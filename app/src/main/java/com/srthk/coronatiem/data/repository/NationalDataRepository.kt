@@ -15,6 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.time.Duration
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
@@ -24,8 +25,8 @@ class NationalDataRepository(
     private val prefs: PreferenceProvider
 ) : SafeApiRequest() {
     private val nationalData = MutableLiveData<List<Statewise>>()
-    var isInternetAvailable: Boolean = true
-    var isApiException: Boolean = false
+    var isInternetAvailable = true
+    var isApiException = false
 
     init {
         nationalData.observeForever {
@@ -57,9 +58,11 @@ class NationalDataRepository(
 
     private fun fetchNeeded(dataSavedAt: LocalDateTime): Boolean =
         ChronoUnit.HOURS.between(dataSavedAt, LocalDateTime.now()) > MIN_INTERVAL
+//        Duration.between(dataSavedAt, LocalDateTime.now()) > MIN_INTERVAL
 
+    private
 
-    private fun saveNationalData(it: List<Statewise>) {
+    fun saveNationalData(it: List<Statewise>) {
         CoroutineScope(Dispatchers.IO).launch {
             prefs.savelastSavedAt(LocalDateTime.now().toString())
             db.getNationalDataDao().saveNationalData(it)

@@ -14,6 +14,7 @@
     <color name="delta_text_color">#938A8A</color>
     <color name="black">#000000</color>
     <color name="dot_color">#B1ACAC</color>
+    <color name="statusBarColor">#FFFFFF</color>
 
 
 </resources>
