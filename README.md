@@ -5,10 +5,14 @@ CoronaTiem is an App for Tracking Corona Virus Cases in India.The data is provid
   - Offline Caching of Data using Room
   - Dependency Injection with Kodein-DI
   - Use of MVVM Pattern
-  - 
+  - Use of Groupie for recycler View
+  - Use of DataBinding (with Groupie)
+ 
   
- #### Feel Free to make a PR
-#### Star the Repo if you find it useful 
+ #### Feel Free to make a PR or Issue
+ 
+ 
+ #### Star the Repo if you find it useful 
 
-##### Peace Out
+ ##### Peace Out
 
