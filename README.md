@@ -1,4 +1,4 @@
-# CoronaTiem [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/techysrthk%40gmail.com) [![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/srthkpthk/CoronaTiem/blob/master/LICENSE)
+# CoronaTiem [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/techysrthk%40gmail.com) [![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/srthkpthk/CoronaTiem/blob/master/LICENSE) ![GitHub stars](https://img.shields.io/github/stars/srthkpthk/CoronaTiem)
 
 CoronaTiem is an App for Tracking Corona Virus Cases in India.The data is provided by https://www.covid19india.org
 
@@ -15,4 +15,3 @@ CoronaTiem is an App for Tracking Corona Virus Cases in India.The data is provid
  #### Star the Repo if you find it useful 
 
  ##### Peace Out
-
