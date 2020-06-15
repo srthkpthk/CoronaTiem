@@ -7,11 +7,16 @@ CoronaTiem is an App for Tracking Corona Virus Cases in India.The data is provid
   - Use of MVVM Pattern
   - Use of Groupie for recycler View
   - Use of DataBinding (with Groupie)
+  - Dark Mode Support
  
   
+
  #### Feel Free to make a PR or Issue
  
  
  #### Star the Repo if you find it useful 
 
+ <img src="white-ss.jpg"> <img src="black-ss.jpg">
+
  ##### Peace Out
+
