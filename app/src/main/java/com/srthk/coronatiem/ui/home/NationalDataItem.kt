@@ -11,4 +11,7 @@ class NationalDataItem(private val statewise: Statewise) : BindableItem<ItemList
     override fun bind(viewBinding: ItemListBinding, position: Int) {
         viewBinding.state = statewise
     }
+
+    override fun toString(): String = statewise.statecode
 }
+

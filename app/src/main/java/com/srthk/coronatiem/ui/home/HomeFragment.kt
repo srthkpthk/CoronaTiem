@@ -56,7 +56,7 @@ class HomeFragment : Fragment(R.layout.home_fragment), KodeinAware {
                 }
                 else -> {
                     this@HomeFragment.requireContext()
-                        .toast("There's an error better check for internet")
+                            .toast("There's an error better check for internet")
                     showLoading(false)
 
                 }
@@ -72,7 +72,9 @@ class HomeFragment : Fragment(R.layout.home_fragment), KodeinAware {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = groupAdapter
-
+        }
+        groupAdapter.setOnItemClickListener { item, view ->
+            println(item.toString())
         }
         showLoading(false)
     }
